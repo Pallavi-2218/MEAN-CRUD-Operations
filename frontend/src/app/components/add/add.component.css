@@ -1,0 +1,11 @@
+table{
+    width: 70%;
+    margin-left: 100px;
+}
+th,td{
+
+    border: 1px solid gray;
+}
+button{
+    margin-left: 10px;
+}

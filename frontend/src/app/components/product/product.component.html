@@ -1,0 +1,110 @@
+<h1>Products Data</h1>
+
+
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addproduct">Add Product</button> 
+<div class="container">
+   
+    <div class="row">
+        <div class="col-md-1">
+            
+        </div>
+        <div class="col-md-10">
+            <table>
+                <thead>
+                    <tr><td>mark items to del</td>
+                        <td>Company</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let p of product">
+                        <td><input type="checkbox" class="btn-close" (input)="addto(p)"></td>
+                        <td>{{p.productCompany}}</td>
+                        <td>{{p.productName}}</td>
+                        <td>{{p.productPrice}}</td>
+                        <td>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit" (click)="edit(p)">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteProduct(p)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-danger" (click)="delcheck()">Del marked</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add Product -->
+ <div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="Mod" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="Mod">Add New Product</h3>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" novalidate>
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Company</label>
+                        <input type="text" name="com" [(ngModel)]="company" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Name</label>
+                        <input type="text" name="Name" [(ngModel)]="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Price</label>
+                        <input type="text" name="price" [(ngModel)]="price" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" (click)="addProduct()" data-bs-dismiss="modal">Add</button>
+            </div>
+        </div>
+    </div>
+ </div>
+ 
+ <!-- update -->
+
+<div class="modal fade" id="edit" >
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >Edit User</h3>
+                <button class="btn-close" aria-label="Close" type="button" data-bs-dismiss="modal">
+                
+                </button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Company</label>
+                        <input type="text" name="company1"  class="form-control" [(ngModel)]="proCompany">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Name</label>
+                        <input type="text" name="name1"  class="form-control" [(ngModel)]="proName">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">Product Price</label>
+                        <input type="text" name="Price1" [(ngModel)]="proPrice" class="form-control">
+                    </div>
+                </form>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-success" data-bs-dismiss="modal" type="button" (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+

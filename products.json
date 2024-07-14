@@ -1,0 +1,12 @@
+ 
+  {
+    "title": "Product A",
+    "price": 29.99,
+    "productImage": "https://example.com/productA.jpg"
+  },
+  {
+    "title": "Product B",
+    "price": 49.99,
+    "productImage": "https://example.com/productB.jpg"
+  }
+

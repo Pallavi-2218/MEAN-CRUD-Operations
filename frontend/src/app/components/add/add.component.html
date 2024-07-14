@@ -1,0 +1,53 @@
+<div class="input-group">
+    <input type="text" class="search form-control" placeholder="Search the Book" [(ngModel)]="filtervalue" (keyup)="filter()">
+    <button class=" btn btn-primary" *ngIf="f">&nbsp;&nbsp;Searching started...</button>
+  </div>
+
+
+  <br><br><br>
+  <div *ngIf="l==0 && f==true">
+    <h4>No PRODUCT found</h4>
+  </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Company</th>
+      <th>price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let p of product">
+        <td>{{p._id}}</td>
+        <td>{{p.productCompany}}</td>
+        <td>{{p.productName}}</td>
+        <td>{{p.productPrice}}</td>
+        <td>
+            <button class="btn btn-warning" >Edit</button>
+            <button class="btn btn-danger">Delete</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table>
+    <tbody *ngFor="let b of filteredproducts">
+      <tr *ngIf="!f">
+          <td><input type="text" name="id1" class="form-control" [(ngModel)]="b._id" id="n"></td>
+          <td><input type="text" name="na" class="form-control" [(ngModel)]="b.productName" ></td>
+          <td><input type="text" name="com" class="form-control" [(ngModel)]="b.productCompany"></td>
+          <td><input type="text" name="price" class="form-control" [(ngModel)]="b.productPrice"></td>
+          <td>
+              <button class="btn btn-warning" >Edit</button>
+              <button class="btn btn-danger">Delete</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+
